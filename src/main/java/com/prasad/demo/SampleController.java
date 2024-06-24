@@ -25,13 +25,20 @@ public class SampleController {
     }
 
     @GetMapping("/createsample")
-    ResponseEntity<String> createOrder() throws InterruptedException {
-        log.info("Inside sample-tracking-api --> createsample");
+    ResponseEntity<String> createSample() throws InterruptedException {
+        log.info("Inside sample-tracking-api --> createSample");
         Random rand = new Random();
         int sampleId;
         sampleId = rand.nextInt(100000);
         log.info("Created sampleID : "+sampleId);
-        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.TEXT_PLAIN).body("Sample cerated : "+String.valueOf(sampleId));
+        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.TEXT_PLAIN).body("Sample created : "+String.valueOf(sampleId));
+    }
+
+    @GetMapping("/listsamples")
+    ResponseEntity<String> listsamples() throws InterruptedException {
+        log.info("Inside sample-tracking-api --> listsamples");
+        String sampleId = "62293, 292038, 282093, 19203";
+        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.TEXT_PLAIN).body("Samples retrieved : "+String.valueOf(sampleId));
     }
 
 
